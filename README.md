@@ -25,8 +25,14 @@ Below is a plot of which features XGB thought was the most predictive feature. I
 
 
 The best performing models are the XGBoost and LightGBM models while the the two models did not perform as well.
+
+
+
+
+
 ![ROC](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/churn_roc.png?raw=true)
 
+While AUC is a good metric for imbalanced data, it is still important to look at other metrics as well, such as recall (TP/ TP+FN). In this case, we want recall to be high since we want to minimize false negatives (the number of customers who churned but were not identified).
 
 |Models| Precision | F1| Recall|
 | :---         |     :---     |          :--- | :---  |  
