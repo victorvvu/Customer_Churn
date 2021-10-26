@@ -30,9 +30,10 @@ The best performing models are the XGBoost and LightGBM models while the the two
 
 |Models| Precision | F1| Recall|
 | :---         |     :---     |          :--- | :---  |  
-| XGB with SMOTE  | git status     | git status    |
-| LGB with SMOTE     | git diff       | git diff      |
-| Logistic Regression | as | a |s|
+| XGB with SMOTE  | .83   |  .89  |     .96|
+| LGB with SMOTE | .83       | .89    | .96|
+| Logistic Regression | .46 | .57 | .74|
+|Random Forest | .73 | .82| .93|
 
 One of the most important aspects of customer retention is identifying which customers are likely to churn. The model itself cannot prevent customers from churning; it is only a starting point. The next step would be to come up a strategy to incentivize at risk customers to stay with the company. This can include offer exclusive deals, more customer support, or offering bonuses from more spending. 
 ## 3. Data Description
