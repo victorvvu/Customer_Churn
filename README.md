@@ -1,66 +1,64 @@
-# Churn Classifier
+# Credit Card Churn Classifier
 
 
-This respository contains data from a Kaggle competition 
-(Ventilator Pressure Prediction) hosted by Google Brain.
-
-![Loss Function](https://github.com/victorvvu/Google_Ventilator_RNN/blob/main/data_set_imgs/vent_gif.gif?raw=true)
+This repository was taken from Kaggle. The dataset was originally found on Leaps Analytica.
 
 ## 1. Summary 
 
 ##### Problem Statement
 
-The pandemic has shown the current limitations of ventilators because of it's intesenive, manual procedure. 
-Ventilators are used as a last resort for clinicians, to manually pump oxygen into a patient's lung. 
-
-
-Machine learning can help reduce barrier of developing new methods for controlling mechanical ventilators. 
-This will greatly benefit clinicians by giving them an effective instrument and hopefully reduce the burden of them during these times.
-As a result, ventilator treatments may become more widely available to help patients breathe.
+A manager at the bank is disturbed with more and more customers leaving their credit card services. This dataset has information on customers, and the goal is to provide them better services and turn customers' decisions in the opposite direction
 
 ##### Technical Overview
-The dataset is comprised of numerous time series of breaths. So I decide to construct a RNN with GRU units. LSTM units usually outperform GRU, however
-GRUs train faster, since they have one less gate to tune. In practice, GRU and LSTM models are both trained to see which one yields better results. I also tried training a LightGBM model, but it was unable to keep up with the GRU.
-
+The dataset is slightly imbalanced, meaning there are only 15% of postitive cases (customers who churned). To overcome this imbalanced, I utilized ensemble models with SMOTE, a very robust ML technique that creates synthetic positive cases. 
 ## 2. Results
-Here the GRU actually performed fairly well against LTSM models on Kaggle. Even though the GRU was out performed by LSTM, I was still able to obrtain good results with a simplier model. Unfortunately, I was not able to save my model, since the kernel froze. However, I was still able to submit my results in the competition. 
 
-I created a correlation matrix to see if I can get any insights about the target variables or the features.
+I tested 4 models:
+- logistic regression with SMOTE
+- Random Forest without SMOTE
+- XGB with SMOTE
+- LightGBM with SMOTE
 
-![corr](https://github.com/victorvvu/Google_Ventilator_RNN/blob/main/data_set_imgs/correlation_feat.png?raw=true)
+Below is a plot of which features XGB thought was the most predictive feature. It seems like the total amount of transactions, and the difference in transactions are the most predictive indicators. 
 
-I performed cross validations 5 times. Below is the plotted loss fucntion on one fold. After ~120 epochs, the model starts overfitting so training stops.
-
-
-![Loss Function](https://github.com/victorvvu/Google_Ventilator_RNN/blob/main/data_set_imgs/fig%20(3).jpg?raw=true)
-
-Here is the learning rate plotted
+![feat](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/churn_feature.png?raw=true)
 
 
-![Learning Rate](https://github.com/victorvvu/Google_Ventilator_RNN/blob/main/data_set_imgs/fig2%20(1).jpg?raw=true)
+The best performing models are the XGBoost and LightGBM models while the the two models did not perform as well.
+![ROC](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/churn_roc.png?raw=true)
 
- 
-Overall I am pretty satisfied with my results. If this model was applied to medical practioners, it would serve as a strong baseline to what the next generation mechanical ventalitors can do. Ventilators can be the difference from life or death so having the best medical equipment is imperative to combat COVID-19.
- 
+
+|Models| Precision | F1| Recall|
+| :---         |     :---     |          :--- | :---  |  
+| XGB with SMOTE  | git status     | git status    |
+| LGB with SMOTE     | git diff       | git diff      |
+| Logistic Regression | as | a |s|
+
+One of the most important aspects of customer retention is identifying which customers are likely to churn. The model itself cannot prevent customers from churning; it is only a starting point. The next step would be to come up a strategy to incentivize at risk customers to stay with the company. This can include offer exclusive deals, more customer support, or offering bonuses from more spending. 
 ## 3. Data Description
 
-- id - globally-unique time step identifier across an entire file
+This dataset consists of 10,000 customers mentioning their age, salary, marital_status, credit card limit, credit card category, etc. There are nearly 18 features. There are only 16.07% of customers who have churned.
 
-- breath_id - globally-unique time step for breaths
-
-- R - lung attribute indicating how restricted the airway is (in cmH2O/L/S). Physically, this is the change in pressure per change in flow (air volume per time). Intuitively, one can imagine blowing up a balloon through a straw. We can change R by changing the diameter of the straw, with higher R being harder to blow.
-
-- C - lung attribute indicating how compliant the lung is (in mL/cmH2O). Physically, this is the change in volume per change in pressure. Intuitively, one can imagine the same balloon example. We can change C by changing the thickness of the balloon’s latex, with higher C having thinner latex and easier to blow.
-
-- time_step - the actual time stamp.
-
-- u_in - the control input for the inspiratory solenoid valve. Ranges from 0 to 100.
-
-- u_out - the control input for the exploratory solenoid valve. Either 0 or 1.
-
-*Target Variable*
-- pressure - the airway pressure measured in the respiratory circuit, measured in cmH2O.
-
+- Attrition_Flag
+- Customer_Age
+- Gender
+- Dependent_count
+- Education_Level
+- Marital_Status
+- Income_Category
+- Card_Category
+- Months_on_book - how long customer has stayed
+- Total_Relationship_Count
+- Months_Inactive_12_mon
+- Contacts_Count_12_mon
+- Credit_Limit - credit card limit
+- Total_Revolving_Bal - Balance
+- Avg_Open_To_Buy - Open to Buy Credit Line (Average of last 12 months)
+- Total_Amt_Chng_Q4_Q1 - amount change from Q4 - Q1
+- Total_Trans_Amt - total amount of tran
+- Total_Trans_Ct - total transaction count
+- Total_Ct_Chng_Q4_Q1 - transaction count change from Q4 - Q1
+- Avg_Utilization_Ratio - Average Card Utilization Ratio
   
 ## 4. Libraries
 
@@ -70,8 +68,7 @@ Overall I am pretty satisfied with my results. If this model was applied to medi
 - pandas
 - numpy
 - pandas 
+
 ## 5. References
 
-https://www.kaggle.com/c/ventilator-pressure-prediction/data
-
-[Referenced features and LR](https://www.kaggle.com/tenffe/finetune-of-tensorflow-bidirectional-lstm)
+https://www.kaggle.com/sakshigoyal7/credit-card-customers
