@@ -11,10 +11,11 @@ A manager at the bank is disturbed with more and more customers leaving their cr
 
 ##### Technical Overview
 The dataset is slightly imbalanced, meaning there are only 15% of postitive cases (customers who churned). To overcome this imbalanced, I utilized ensemble models with SMOTE, a very robust ML technique that creates synthetic positive cases. 
+
 ## 2. Results
 
 I tested 4 models:
-- logistic regression with SMOTE
+- Logistic Regression with SMOTE
 - Random Forest without SMOTE
 - XGB with SMOTE
 - LightGBM with SMOTE
@@ -24,7 +25,7 @@ Below is a plot of which features XGB thought was the most predictive feature. I
 ![feat](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/churn_feature.png?raw=true)
 
 
-The best performing models are the XGBoost and LightGBM models while the the two models did not perform as well.
+The best performing models are the XGBoost and LightGBM models while the two models did not perform as well.
 
 
 
