@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Churn</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Customer_Age" placeholder="Customer Age" required="required" />
+    	<br>
+        <input type="text" name="Gender" placeholder="Gender" required="required" />
+        <br>
+		<input type="text" name="Dependent_count" placeholder="Dependent Count" required="required" />
+		<br>
+		<input type="text" name="Education_Level" placeholder="Education Level" required="required" />
+		<br>
+		<input type="text" name="Marital_Status" placeholder="Marital Status" required="required" />
+        <br>
+        <input type="text" name="Income_Category" placeholder="Income Category" required="required" />
+        <br>
+        <input type="text" name="Card_Category" placeholder="Card Category" required="required" />
+        <br>
+        <input type="text" name="Months_on_book" placeholder="Months on book" required="required" />
+        <br>
+        <input type="text" name="Total_Relationship_Count" placeholder="Total Relationship Count" required="required" />
+		<br>
+		<input type="text" name="Months_Inactive_12_mon" placeholder="Months Inactive" required="required" />
+        <br>
+        <input type="text" name="Contacts_Count_12_mon" placeholder="Contacts Count" required="required" />
+        <br>
+        <input type="text" name="Credit_Limit" placeholder="Credit Limit" required="required" />
+		<br>
+		<input type="text" name="Total_Revolving_Bal" placeholder="Total Revolving Balance" required="required" />
+		<br>
+		<input type="text" name="Avg_Open_To_Buy" placeholder="Aervage Open" required="required" />
+        <br>
+        <input type="text" name="Total_Amt_Chng_Q4_Q1" placeholder="Total Amount Change Q4-Q1" required="required" />
+        <br>
+        <input type="text" name="Total_Trans_Amt" placeholder="Total Transaction" required="required" />
+        <br>
+        <input type="text" name="Total_Trans_Ct" placeholder="Transaction Count" required="required" />
+        <br>
+        <input type="text" name="Total_Ct_Chng_Q4_Q1" placeholder="Transaction Count Change" required="required" />
+        <br>
+        <input type="text" name="Avg_Utilization_Ratio" placeholder="Utilization Ratio" required="required" />
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
