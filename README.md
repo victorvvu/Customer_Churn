@@ -18,6 +18,9 @@ The dataset is slightly imbalanced, meaning there are only 15% of postitive case
 ## 2. Results
 
 Below is a demo of the application being deployed on an EC2 instance. Since I do not want to incur charges, I took down the instance once I confirmed that the application was working properly. 
+
+
+
 ![EC2](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/ec2_demo.gif)
 
 
