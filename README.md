@@ -3,6 +3,8 @@
 
 This repository was taken from Kaggle. The dataset was originally found on Leaps Analytica.
 
+In this project, I will train several models and deploy the best model on an EC2 instance using Flask.
+
 ## 1. Summary 
 
 ##### Problem Statement
@@ -13,6 +15,9 @@ A manager at the bank is disturbed with more and more customers leaving their cr
 The dataset is slightly imbalanced, meaning there are only 15% of postitive cases (customers who churned). To overcome this imbalanced, I utilized ensemble models with SMOTE, a very robust ML technique that creates synthetic positive cases. 
 
 ## 2. Results
+
+![EC2](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/ec2_demo.gif)
+
 
 I tested 4 models:
 - Logistic Regression with SMOTE
