@@ -5,6 +5,7 @@ This repository was taken from Kaggle. The dataset was originally found on Leaps
 
 In this project, I will train several models and deploy the best model on an EC2 instance using Flask.
 
+
 ## 1. Summary 
 
 ##### Problem Statement
@@ -16,6 +17,7 @@ The dataset is slightly imbalanced, meaning there are only 15% of postitive case
 
 ## 2. Results
 
+Below is a demo of the application being deployed on an EC2 instance. Since I do not want to incur charges, I took down the instance once I confirmed that the application was working properly. 
 ![EC2](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/ec2_demo.gif)
 
 
@@ -48,6 +50,10 @@ While AUC is a good metric for imbalanced data, it is still important to look at
 |Random Forest | .73 | .82| .93|
 
 One of the most important aspects of customer retention is identifying which customers are likely to churn. The model itself cannot prevent customers from churning; it is only a starting point. The next step would be to come up a strategy to incentivize at risk customers to stay with the company. This can include offer exclusive deals, more customer support, or offering bonuses from more spending. 
+
+Links to the notebooks.
+[EDA](https://www.google.com)
+[Model Selection/ Training](https://github.com/victorvvu/Customer_Churn/blob/main/churn_eda.ipynb)
 ## 3. Data Description
 
 This dataset consists of 10,000 customers mentioning their age, salary, marital_status, credit card limit, credit card category, etc. There are nearly 18 features. There are only 16.07% of customers who have churned.
@@ -75,7 +81,8 @@ This dataset consists of 10,000 customers mentioning their age, salary, marital_
   
 ## 4. Libraries
 
-- Keras
+- Flask
+- LightGBM
 - Optuna
 - sklearn
 - pandas
