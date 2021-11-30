@@ -21,7 +21,7 @@ Below is a demo of the application being deployed on an EC2 instance. Since I do
 
 
 
-![EC2](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/ec2_demo.gif)
+![EC2](https://github.com/victorvvu/Customer_Churn/blob/main/imgs/ml_demo.gif)
 
 
 I tested 4 models:
